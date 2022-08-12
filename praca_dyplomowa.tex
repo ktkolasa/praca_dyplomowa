@@ -1,0 +1,257 @@
+\documentclass[a4paper,12pt,twoside,openany]{report}
+%
+% Wzorzec pracy dyplomowej
+% J. Starzynski (jstar@iem.pw.edu.pl) na podstawie pracy dyplomowej
+% mgr. inż. Błażeja Wincenciaka
+% Wersja 0.1 - 8 października 2016
+%
+\usepackage{polski}
+\usepackage{helvet}
+\usepackage[T1]{fontenc}
+\usepackage{anyfontsize}
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex]{graphicx}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[polish]{babel}
+\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{verbatim}
+\usepackage{indentfirst}
+\usepackage[pdftex]{hyperref}
+
+
+% rozmaite polecenia pomocnicze
+% gdzie rysunki?
+\newcommand{\ImgPath}{.}
+
+% oznaczenie rzeczy do zrobienia/poprawienia
+\newcommand{\TODO}{\textbf{TODO}}
+
+
+% wyroznienie slow kluczowych
+\newcommand{\tech}{\texttt}
+
+% na oprawe (1.0cm - 0.7cm)*2 = 0.6cm
+% na oprawe (1.1cm - 0.7cm)*2 = 0.8cm
+%  oddsidemargin lewy margines na nieparzystych stronach
+% evensidemargin lewy margines na parzystych stronach
+\def\oprawa{1.05cm}
+\addtolength{\oddsidemargin}{\oprawa}
+\addtolength{\evensidemargin}{-\oprawa}
+
+% table span multirows
+\usepackage{multirow}
+\usepackage{enumitem}	% enumitem.pdf
+\setlist{listparindent=\parindent, parsep=\parskip} % potrzebuje enumitem
+
+%%%%%%%%%%%%%%% Dodatkowe Pakiety %%%%%%%%%%%%%%%%%
+\usepackage{prmag2017}   % definiuje komendy opieku,nrindeksu, rodzaj pracy, ...
+
+
+%%%%%%%%%%%%%%% Strona Tytułowa %%%%%%%%%%%%%%%%%
+% To trzeba wypelnic swoimi danymi
+\title{Wycena działek budowlanych z wykorzystaniem uczenia maszynowego}
+
+% autor
+\author{Katarzyna Kolasa}
+\nrindeksu{284919}
+
+\opiekun{dr hab. inż.  Paweł Piotrowski}
+\terminwykonania{1 lutego 2022} % data na oświadczeniu o samodzielności
+\rok{2022}
+
+
+% Podziekowanie - opcjonalne
+%\podziekowania{\input{podziekowania.tex}}
+
+% To sa domyslne wartosci
+% - mozna je zmienic, jesli praca jest pisana gdzie indziej niz w ZETiIS
+% - mozna je wyrzucic jesli praca jest pisana w ZETiIS
+\miasto{Warszawa}
+\uczelnia{POLITECHNIKA WARSZAWSKA}
+\wydzial{WYDZIAŁ ELEKTRYCZNY}
+\instytut{INSTYTUT ELEKTROENERGETYKI}
+%\instytut{INSTYTUT ELEKTROTECHNIKI TEORETYCZNEJ\linebreak[1] I~SYSTEMÓW INFORMACYJNO-POMIAROWYCH}
+\zaklad{ZAKŁAD SIECI I SYSTEMÓW ELEKTROENERGETYCZNYCH}
+% \zaklad{ZAKŁAD ELEKTROTECHNIKI TEORETYCZNEJ\linebreak[1] I~INFORMATYKI STOSOWANEJ}
+%\kierunekstudiow{INFORMATYKA}
+
+% domyslnie praca jest inzynierska, ale po odkomentowaniu ponizszej linii zrobi sie magisterska
+%\pracamagisterska
+%%% koniec od P.W
+
+\opinie{%
+  \input{opiniaopiekuna.tex}
+  \newpage
+  \input{recenzja.tex}
+}
+
+\streszczenia{
+  \input{streszczenia.tex}
+}
+
+\begin{document}
+\maketitle
+
+\chapter{Wstęp do problemu wyceny działek budowlanych}
+Problem wyceny dziełek budowlanych związany jest z zagadnieniem wyceny nieruchomości w ogóle. 
+
+\section{Definicja działki budowlanej}
+ definiuje działkę budowlaną jako
+\textit{(..) nieruchomość gruntową lub działkę gruntu, której wielkość, cechy geometryczne, dostęp do drogi publicznej oraz wyposażenie w urządzenia infrastruktury technicznej spełniają wymogi realizacji obiektów budowlanych wynikające z rozporządzenia, odrębnych przepisów i aktów prawa miejscowego}\cite{OMI}
+
+
+--goły tekst obwieszczenia:
+ Działka budowlana przewidziana pod zabudowę budynkami przeznaczonymi na pobyt ludzi powinna mieć zapewnioną możliwość przyłączenia uzbrojenia działki lub bezpośrednio budynku do sieci wodociągowej, kanalizacyjnej, elektroenergetycznej i ciepłowniczej, a dla budynków wymienionych w § 56 – także telekomunikacyjnej. 2. Za równorzędne z przyłączeniem do sieci elektroenergetycznej i ciepłowniczej uznaje się zapewnienie możliwości korzystania  z indywidualnych  źródeł  energii  elektrycznej  i ciepła,  odpowiadających  przepisom  odręb
+----
+Tymaczesm Ustawa o gospodarce nieruchomościami  definiuje działkę budowlaną podobnie, ale jako \textit {zabudownąa działkę grutu(...)} -z czego wynika, że definicja nie jest spójna. Na potrzeby tej pracy pojęcie "działka budowlana" będzie oznaczała dzałkę niezabudowana, przeznazoną do zabudowy, w mysl pierwszej definicji.
+Warto również zaznaczyć, że nawet jeśli w ogłoszeniu o sprzedaży dana działka jest budowlana, warto zweryfikować w  MPZP -  czy jest to zgodne z prawda i na prawdę nadaje się pod zabudową. Dla wiekszych miast te plany dostepne są w internecie, jednak w różnych foamratach- interaktywnej mapy, mapy pdf, oraz przede wszystkim - jako tekst uchwały samorządu. 
+
+
+W kontekście szacoawania wartości dokumenty źródłowe (z Dziennika Ustaw) mówią raczej o wyceniniu nieruchomości niż działki czy działki budowlanej szeczólnosci.
+
+Kodeks cywilny  definiuje nieruchomości jako
+\textit { części powierzchni ziemskiej stanowiące odrębny przedmiot własności (grunty), jak również budynki trwale z gruntem związane lub części takich budynków(...)} \cite{KC} TODOCzęść Ogólna- Mienie  Art. 46.§ 1.
+
+
+\section{Definicja wyceny nieruchomości}
+W polskim prawodastwie 
+\textit{ Określanie wartości nieruchomości polega na określaniu wartości prawa własności lub innych praw do nieruchomości.} \cite{RRM} Rozdz 2 par 2
+W rozporządzeniu Rady Ministrów wspomniane są "rodzaje metod i technik wyceny nieruchomości", które służyć mają okresleniu wartości nieruchomości. W tym rozumieniu "wycena" będzie więc określeniem wartości" 
+Wyceną nieruchomości zajmuje się  .... w sytuacji takiej i takie... tworzy......
+Przy wykonianiu takiej wyceny rzeczoznawca może- w myśl rozporządzenia- zastosować następujące podejścia:
+\begin{itemize}
+\item dochodowe - w tym podejściu zasadniczą rolę odgrywa znajomość dochodów uzyskiwanych lub możliwych do uzyskania z nieruchomości, z czynszów i nie tylko; do samej wyceny można zaś zastosować dwie metody -  inwestycyjną (jeśli możliwa jest dzierżawa albo uzyskiwanie czynszu - wtedy trzeba przeanalizować dla nich stawki rynkowe) alb zysków (przanalizować trzeba wówczas inne dochody uzyskiwane z działaności prowadzonej na podobnych nieruchomościach).
+
+W przypadku obu tych metod można zaś zastosować dwie techniki - techniki kapitalizacji prostej (\textit{wartość nieruchomości określa się jako iloczyn stałego strumienia dochodu rocznego możliwego do uzyskania z wycenianej nieruchomości i współczynnika kapitalizacji lub iloraz strumie-
+nia stałego dochodu rocznego i stopy kapitalizacji.}) albo techniki dyskontowania strumieni dochodów (zbyt zawiłe???), przy czym przy obu tych technikach nie są brane pod uwagę koszty kredytu, podatku dochodowego, amortyzacji i innych opłat.
+
+TODO gołe echniki dyskontowania strumieni dochodów § 9.-§ 14 i komentarz - czy to możliwe przy naszej wycenie??
+
+
+\item mieszane - stosuje się metodę pozostałościową, metodę kosztów likwidacji albo metodę wskaźników szacunkowych gruntów
+\item porównawcze - z metodami 
+\begin{itemize}
+\item porównywania parami - wycenianą nieruchomośc porównuje się kolejno z podobnymi nieruchomościami, które były przedmiotem obrotu rynkowego
+\item korygowania ceny średniej - gdzie wylicza się średnią cenę transakcyjną z przynajmniej kilkunastu podobnych nieruychomości, a nastęopnie koryguje o poszzególne cechy tych nieruchomości.
+\item  analizy statystycznej
+\end{itemize}
+Podejście porównawcze będzie najbliższe zastosowanemu do przeprowadzenia wyceny w dalszej części pracy, gdzie danymi wejściowymi dla sieci neuronowej będą dane o  cenach i cechach nieruchomości zebrane z dostępnych w internecie ofert.
+W metodzie porównawczej uwzględniane są ceny tnasakcyjne, do których dostęp mają osoby biorące bezpośredni udział w transakcjach kupna-sprzedaży oraz biura nieruchomości. Znane powinny być również warunki zawarcia tych tansakcji  oraz to, jak cechy danej nieruchomości wpłynęły na cenę transakcyjną. Szczególną ostrożność trzeba zaś przyłożyć do cen związanych z przetargami - jesli odbiegają o więcej niż 20 \% od cen rynkowych, nie powinno się uch uwzględniać, oraz do cen transakcji zawartych przy zajściu szczególnych okoliczności - np \textit{sprzedaż dokonaną w postępowaniu egzekucyjnym,
+sprzedaż z bonifikatą, sprzedaż z odroczonym terminem zapłaty lub sprzedaż z odroczonym terminem wydania nierucho-
+mości nabywcy.}
+Ceny powszechnie dostepne to ceny podawane w ogłoszeniach o sprzedaży nieruchomości, które są cenami ....TODO rynkowymi.
+
+
+\end {itemize}
+
+Proces wyceny nieruchomości powinna poprzedzać analiza rynku, tj rozeznanie się w zakresie warunków transakcji, cen, stawek czynszów.
+
+
+\chapter{Źródła danych wejściowych do modeli oraz ich charakterystyka}
+Dane wejściowe zebrane zostały  z internetowych portali z ogłoszeniami o nieruchomościach z serwisów: domiporta, morizon, otodom, gratka.
+Dane wejściowe zawieraja zawsze cenę, przy czym nie jest to cena transakcyjna - co warunkuje to, że wszelkie próby wyceny poprzez sieci neuronowe nie będa w stanie okteslić faktycznej wartości nieruchomości.
+Dane wejściowe są również niejednorodne (TODO czy ejst takie określenie???)
+
+\chapter{Zastosowane metody pozyskiwania danych oraz przygotowania danych wejściowych}
+Zrobiłam to i owo
+\chapter{Analiza statystyczna potencjalnych danych wejściowych do modeli wraz z ich wyborem}
+Analiza bla bla bla.
+Wybrane te i te.
+\chapter{Projekt i implementacja narzędzia do wyceny działek budowlanych}
+Zaimpelmentowałam to tak i siak.
+\chapter{Wykonanie wycen działek budowlanych oraz analiza otrzymanych wyników}
+Działki a i b i c wycenione zostały tak i siak
+\chapter{Podsumowanie i wnioski}
+
+-------------------------------------
+\chapter{Pozostałość ze starej pracy}
+
+\section{Historia}
+
+Rozdziały \ref{sectionSteganografiaWObiektachMultimedialnych} oraz 
+\ref{chapterSteganografiaWRuchuTCPIP} opisują nowoczesne podejście do 
+steganografii wykorzystujące współczesne kanały informacyjne. 
+\section{Schemat komunikacji steganograficznej}
+\label{sectionSchematKomunikacjiSteganograficznej}
+ Ma on pełen wgląd do przekazywanych 
+informacji, więc może przechwycić wszelkie przekazywane tajemnice, a dodatkowo w 
+razie podejrzeń może nie dopuścić do komunikacji\footnote{podejrzana informacja 
+jest tu analogią do stosowania kryptografii przez więźniów}. W takim przypadku w 
+celu przekazania ważnych informacji \tech{A} i \tech{B} muszą posłużyć się 
+pewnego rodzaju podstępem. 
+\begin{figure}[!htbp]
+	\begin{center}
+\centering
+\includegraphics[scale=0.4]{\ImgPath/rys/schemat_komunikacji.png}
+\end{center}
+	\caption{Schemat komunikacji steganograficznej}
+	\label{schematKomunikacji}
+\end{figure}
+
+Przedstawioną tak sytuację pokazuje rysunek 
+\ref{schematKomunikacji}\footnote{sporządzony na podstawie 
+\cite{schematKomunikacjiPrzypis}, rysunek 1, strona 3}. \tech{A} próbuje 
+przesłać tajną informację \tech{E} do \tech{B}. Można tu wykorzystać metody kryptografii symetrycznej (ustalony 
+klucz kryptograficzny \tech{K}) lub niesymetrycznej (klucz publiczny 
+\tech{K}$_{pub}$ i klucz prywatny \tech{K}$_{pryw}$).
+
+\section{Metody tworzenia steganografii oraz rodzaje ukrytych kanałów}
+ W większości przypadków występujących w rzeczywistych sieciach i 
+systemach, numery wygenerowane przy pomocy \tech{Shushi} nie byłyby rozróżnialne 
+od numerów wygenerowanych przez stos sieciowy systemu.
+
+\begin{tabular}{c|cc}
+pierwsza kolumna & druga & trzecia \\ \hline
+1 & 2 & 3 \\
+a & b & c \\
+\end{tabular} 
+
+\begin{equation}
+ E = m c^2 \label{einstein}
+\end{equation}
+
+
+
+\appendix
+\chapter{Porównanie numerów ISN jądra Linux i modułu Shushi}
+\begin{figure}[!htbp]
+	\begin{center}
+\centering
+\includegraphics[scale=0.21]{\ImgPath/rys/IPPortConstData.pdf}
+\end{center}
+	\caption{Numery ISN wygenerowane przez jądro oraz \tech{Shushi}, stałe 
+numery IP oraz porty TCP, stałe dane dla \tech{Shushi}, serie po około 2800 
+próbek.}
+	\label{IPPortConstData}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\begin{center}
+\centering
+\includegraphics[scale=0.21]{\ImgPath/rys/IPPortConstDataDiff.pdf}
+\end{center}
+	\caption{Różnice pomiędzy kolejnymi numerami ISN wygenerowanymi przez 
+jądro oraz \tech{Shushi}, stałe numery IP oraz porty TCP, stałe dane dla 
+\tech{Shushi}, serie po około 60000 próbek.}
+	\label{IPPortConstDataDiff}
+\end{figure}
+
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{Bibliografia}
+\bibitem{KC}{Kodeks Cywilny https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU19640160093/U/D19640093Lj.pdf dost 11.12.2021}
+\bibitem{OPRM}{OBWIESZCZENIE PREZESA RADY MINISTRÓW z dnia 3 marca 2021 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Rady Ministrów w sprawie wyceny nieruchomości i sporządzania operatu szacunkowego; https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210000555/O/D20210555.pdf }
+\bibitem{UoGN}{Ustawa z dnia 21sierpnia 1997r.o gospodarce nieruchomościami; http://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20200001990/U/D20201990Lj.pdf}
+\bibitem{UoP}{U S T A W Az dnia 27marca 2003r.o planowaniu izagospodarowaniu przestrzennym; http://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210000741/U/D20210741Lj.pdf}
+\bibitem{OMI}{O B W I E S ZC ZE N I E  M I N I S T R A   I N W E S T Y C J I   I   R O ZW O J U1)z dnia 8 kwietnia 2019 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Ministra Infrastruktury w sprawie warunków technicznych, jakim powinny odpowiadać budynki i ich usytuowanie}
+
+
+
+\end{thebibliography}
+
+\zakonczenie  % wklejenie recenzji i opinii
+
+\end{document}
+%+++ END +++
