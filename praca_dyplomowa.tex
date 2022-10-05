@@ -172,6 +172,21 @@ Ceny powszechnie dostepne to ceny podawane w ogłoszeniach o sprzedaży nierucho
 
 \end {itemize}
 
+\section {Istniejące rozwiązania}
+Kilka stron oferuje wycenę domu/mieszkania w formie kalkulatora wartości nieruchomości. Aby wycenić mieszkanie, należy wprowadzić informacje o aadresie, roku budowy, metrażu, liczbie pokoi, numerze piętra, subiektywnie ustalonym standardzie, udogodnieniach. Pośród portali oferujących taką usługę, są też takie, które oferują zaznaczenie opcji, że na sprzedaż jest działka, jednak formularz wygląda tak samo jak dla domu/mieszkania.
+Przykłady: skup.io, ceny.szybko.pl 
+
+ Strona Szybko pl reklamuje się w taki sposób, ze:
+ 1. korzysta z 
+\textit {AVM (Automated Valuation Model • Automatyczny Model Wyceny) oblicza rynkową wartość nieruchomości za pomocą modelu statystycznego. Model analizuje ceny transakcyjne i ofertowe oraz cechy konkretnej nieruchomości. }
+2.oferyje Heatmapę (rzeczoznawcom?) odzwierciedlają średni poziom cen w okolicy. 
+3. pozwala śledzić trendy
+Zmiany cen w wybranej lokalizacji, dzielnicy, mieście. Przegląd tempa zmian w ostatnich 3 miesiącach, półroczu - do 3 lat wstecz. 
+
+
+Otodom -oferuje agentom narzędze Mapy Cen:
+\textit{Narzędzie to jest budowane i aktualizowane na bieżąco od wielu lat, na podstawie danych płynących bezpośrednio z urzędów gmin i miast z całej Polski. W ramach współpracy z naszym partnerem technologicznym PriceR udostępniamy dostęp do mapy cen transakcyjnych na bardzo atrakcyjnych warunkach}
+
 \section{Podsumowanie}
 
 Z powyższch rozważań wynika, że 
@@ -185,25 +200,146 @@ Uczenie sieci neuronowej wydaje się podobne do podejścia porównawczego.
 
 
 \chapter{Źródła danych wejściowych do modeli oraz ich charakterystyka}
-
-Pierwszym krokiem było zebranie danych o miastach w Polsce.
-Zródłem byłą strona ..... . Z której zebrane zostały informacje w formacie ['Warszawa', 'powiat Warszawa', 'mazowieckie', '1 790 658', '517,2 km²']
-i zapisane do jednego pliku, w porzadku od miasta z największą liczbą ludności do miasta z najmniejszą liczbą ludnosci (['Koźminek', 'powiat kaliski', 'wielkopolskie', '1 978', '-']).
-Wszystkich zapisanych miast jest 951.
-bla
+ 
 
 
-Dane wejściowe zebrane zostały  z internetowych portali z ogłoszeniami o nieruchomościach z serwisów: domiporta, morizon, otodom, gratka.
+
+Dane wejściowe zebrane zostały z internetowych portali z ogłoszeniami o nieruchomościach. Uwzględnione zostały trzy serwisy o bezpłatnym, publicznym dostępie: domiporta, morizon, otodom.
+
+
+OTODOM - dodanie ogłoszenia płątne, może to zrobić osoba prywatna; min kwota to 30 dni za 70 zł; biuro nieruchomości - na portalu czytamy, że korzysta z nigo ponad 5 tys. pośredników \cite{otodom_o_nas}
+
+W pierwszym kroku trzba wybrać przedmiot ogłozenia (mieszkania, domy, pokoje, działkil loklae użytkowe, hale i magazyny, garaże) oraz rodzaj oferty( sprzedaż/wynajem), nastepnie strona się przeładowuje i w formularzu uzupełnić leży:
+-cenę (zł, euro, usd, gbp)
+-powierzchnię w m2
+-typ ogłoszeniodawcy (właściciel/pośrenidk)
+-lokalizację- wpisując nazwę miejscowości - po wpisaniu lokalizacja jest podana na mapie interaktywnej
+-opis
+
+Dodatkowe informacje, jakie można dodać, to:
+-dzielnica oraz ulica/osiedle
+-typ działki (budowlana, rolna, rekreacyjna, pod inwerstycję, leśna, rolno-budowlana, siedliskoa, inna)
+-wymiary (w dowolnym formacie - pole tekstowe)
+ogrodzenie (tak/nie)
+-położenie (miasto, pod miastem, wieś)
+- media (prąd, telefon, oczyszczalnia, woda, kanalizacja, gaz, szambo) - wielokrotnego wyboru)
+-dojazd (nieutwardzony, utwardzonyu, asfaltowy)
+-okolica (las, góry, jezioro, morze, otwarty teren)
+
+
+DOMIPORTA
+obowiązkowe:
+-można zaimportować ogłoszenie z innego portalu
+-rynek(wtórny/pierwotny)
+-rodzaj transakcji (sprzedaż/wynejem)
+-rodzaj nieruchomości (mieszkanie, dom, działka, lokal użytkowy, garaż, magazyn)
+-powierzchnia (w m2)
+-cena
+
+po wybraniu opcji 'działka' i 'sprzedaż' pojawia się obowiazakowe pole 
+-typ działki (budowlana, komercyjna, leśna, leśna z prawem budowy, przemysłowo-handlowa, rekreacyjna, rolna, siedliskowa, inwestycyjna, gospodarstwo rolne, inna)
+
+-cena (można wybrać walutę (pln, euro, usd)
+-można odznaczyć pole 'cana do negocjacji'
+
+W ekcj lokazlizacja obowiązkowe jest przynajmniej podanie nazwy miejscowości.
+MOzna uścislić kod pocztowy, dizlenicę, osiedle, ulcę, nr domu
+wybrane wartości odzwierciedlane są na internktywnej mapie w formulazu
+
+Reszta informacji jest nieobowiażkowa; to .in. pola:
+opis, dostepna od, kształt działki,
+-kanalizacja (brak, szambo, miejska, oczyszczlania) -jednokrotnego wyboruu
+-ogrodzenie działki (brak, siatka, drewniane, murowane, żywopłot, metalowe, inne) - jednokrotnego wyboru
+-droga dojazdowa(asfaltowa, utwardzona, polna, brak)- jdn
+-media(brak, gaz, proąd, siłą, woda) - wielokrotnego wyboru
+-okolica (apteka, autobus, bazarek osiedlowy, centrum handlowe, kolej podmiejska, las, metro, niska zabudowa, park, PKP< plac zabaw, poczta, policja, przedszkole, przychodnia, szkołą, tramwaj, żłobek)
+
+Najtańsza oferta za ogłoszenie to 49zł za 30 dni dla osoby prywantnej; aganecja nieruchomości mogą wystawić ogłoszenie za od 10,9 zł do 0,3 zł, nie jest podane, jak długo w tej ofercie byłoby wyświetlane ogłoszenie.
+
+
+MORIZON
+
+obowiażkowe jest na poczatku wybranie
+-rodzaju oferty (sprzedam/ wynajmę)
+- przedmioty sprzedaży (mieszkanie, dom, działka)
+Po wybraniu 'sprzedaży działki' obowiązkowe jest wybranie
+-typu działki (rolna, budowlana, budowlaba-jednorodzinna, budowlana-wielorodzinna leśna, rekreacyjna, siedlisko, przemysłowa, handlowo-usługowa
+-powierzchni (w m2)
+-ceny (w zł, euro, uds) z możliwości zaznaczenia opcji 'do negocjacji'
+
+obowiazkowe do wybrania z rozwijanej listy:
+-województwa
+-powiatu/miasta
+-gminy/dizlenicy
+można dodać:
+miejscowość, ulicę, nr działki
+Wybrane wartości pokazane są na interaktywnej mapie w formularzu
+
+Obowiązkowy jest tytu; i opsi ogłoszenia.
+Dodatkowo można dodać jako informacje szczegółowe"
+-kanalizacja (miejska, szambo, brak, oczyszczlania)
+-szer działki w m, dł działki w m
+ogrodzenie (murowane, drewniane, siatka, brak, żywopło, metalowe/kute, inne, betonowe)
+-droga dojazdowa (asfaltowa/betonowa, brk, utwardzona, nieutwardzona)
+-Media (prąd, woda, telefon, siła, gaz) - wielokrotnego wyboru
+-dostępne od (miesiąc, rok)
+
+Za ołątą można to samo ogłoszenie opbublikowac na kilku innych portalanach ( Gratka.pl, Domy.pl, Oferty.net, Bezposrednie.com, Nportal.pl, Onet, Mitula i Trovit. )
+
+------------------------------------
+
+
 Dane wejściowe zawieraja zawsze cenę, przy czym nie jest to cena transakcyjna - co warunkuje to, że wszelkie próby wyceny poprzez sieci neuronowe nie będa w stanie okteslić faktycznej wartości nieruchomości.
-Dane wejściowe są również niejednorodne (TODO czy ejst takie określenie???)
+Wspólne:
+-cena, powierzchnia, lokalizacja (może być przybliżona)- obowiązkowe
+
+Dane wejściowe to: liczby oraz tekst.
 
 
 - jednak na portalach, z których pochodzą dane, nie ma dostępnych narzędzi, by odfiltrować oferty w których jako działki budowlane zabudowane oraz niezabudowane nie są rozdzielone- co wiązać się może z zawyżoną ceną w stosunku do grutnów niezabudowanych o podobnych paramtrach.
 Oferty sprzedaży domów, magazynów itp są osobną kategorią
 
 
+
+
 \chapter{Zastosowane metody pozyskiwania danych oraz przygotowania danych wejściowych}
-Zrobiłam to i owo
+
+ 
+ 
+Pierwszym krokiem było zebranie danych o miastach w Polsce.
+Zródłem byłą strona https://www.polskawliczbach.pl/Miasta'. Z której zebrane zostały informacje w formacie ['Warszawa', 'powiat Warszawa', 'mazowieckie', '1 790 658', '517,2 km²']
+i zapisane do jednego pliku, w porzadku od miasta z największą liczbą ludności do miasta z najmniejszą liczbą ludnosci (['Koźminek', 'powiat kaliski', 'wielkopolskie', '1 978', '-']).
+Wszystkich zapisanych miast jest 951.
+
+W nasteępmym kroku przygotowany został skrypt do przeglądania i zapisywania danych ze stron internetowych - webscrapingu.
+Wykorzystane do tego została bibliteka języka Python - beautifulSoup.
+
+Co robił ten skrypt
+
+-iteration_preprocessing uruchamiany był z argumentem - nazwą portalu
+-wstawiał po kolei miasta do linku właściwego dla portalu -w pliku konfiguracyjnym miał zapisane linki do stron z działkami w danym miejście jako templatki
+-dla danego miasta zapisywał wszystkie linki do poszczeglnych ofert - przy czym sprawdzał, czy nie ma koljenych stron (z kontuacją listy ofert dla wybranego miejsca); funkcja wyszukująca oferty jest inna dla każdego portalu
+-następnie przeglądał kazdą z ofert dla miasta, wywołując funkcję collect_info_about_plot z argumentami m.in nazwą portalu oraz linkiem do strony i zbierał klubowe informacjel
+-dla każdego portalu te informacje ukryte były w nieco inny sposób - konieczne było najpierw sprawdzenie (inspekcja) w przeglądarce, by odkryć, jak otagowane?? w cssss??? są konrentne informacje; zależnie od nazwy portalu wywoływany był inny Prser
+-na początku tego parsera nie było, - było szybciej - ale dodałam, żeby coś zrobić obiektowo 
+-problem: są ukryte, dodatkowo zmieniają się z czasem; ponazywane sa nieintuicyjnie i konkretne elelmtnyu czasem można odróżnić np po nazwie stylu...
+-czyszczenie z html
+-
+--obsługa błędów - brak, ofeta pomijana
+-dane o ofertach z wybrnego miasta zapisywane były do jednego pliku, max 100 ofert w jedym (tylko dla Warszawy tworzone było kilka plików)
+-collect_data_about_plot zwracało:
+    result_json = {
+        "city": city,
+        "price": price,
+        "area": area,
+        "features": features,
+        "description": description,
+        "coordinates": coordinates,
+        "offer_link": plot_sales_offer,
+    }
+-do 
+
+
 \chapter{Analiza statystyczna potencjalnych danych wejściowych do modeli wraz z ich wyborem}
 Analiza bla bla bla.
 Wybrane te i te.
@@ -299,6 +435,8 @@ jądro oraz \tech{Shushi}, stałe numery IP oraz porty TCP, stałe dane dla
 
 \bibitem{UoGN}{Ustawa z dnia 21sierpnia 1997r.o gospodarce nieruchomościami; http://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20200001990/U/D20201990Lj.pdf}
 \bibitem{UoP}{U S T A W Az dnia 27marca 2003r.o planowaniu izagospodarowaniu przestrzennym; http://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210000741/U/D20210741Lj.pdf}
+
+\bibitem{otodom_o_nas}{https://www.otodom.pl/pl/cennik/posrednicy-nieruchomosci dost 30.09.2022}
 
 
 
