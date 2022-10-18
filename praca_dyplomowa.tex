@@ -96,97 +96,75 @@
 \chapter{Wstęp do problemu wyceny działek budowlanych}
 
 \section{Wprowadzenie}
-Na początku przedstawione zostaną pojęcia działki budowlanej i wyceny, by doprecyzować temat niniejszej pracy oraz sprawdzić, czy z formalnych definicji można zaczerpnąć na potrzeby dalszych rozważań.//
+Na początku przedstawione zostaną pojęcia działki budowlanej i wyceny, by doprecyzować temat niniejszej pracy i wyjśnić używane dalej pojęcia.\\
 W drugiej części tego rozdziału przeanalizowane zostanie, w jaki sposób i przez kogo zagadnienie wyceny działek budowlanych jest już obecnie realizowane, a w szczególności, jakie narzędzia są do tego wykorzystywane
 
 
 \section{Definicja działki budowlanej}
-Jako materiały źródłowe przywołane będą poniżej polskie akty prawne, które definiują pojęcia działki, działki budowlanej, a także nieruchomości. Pojęcie nieruchomości jest najbardziej ogóle, jednak istotne dla dalszych definicji, dlatego zostanie poruszone na początku.//
+Jako materiały źródłowe przywołane będą poniżej polskie akty prawne, które definiują pojęcia działki, działki budowlanej, a także nieruchomości. Pojęcie nieruchomości jest najbardziej ogóle, jednak istotne dla dalszych definicji, dlatego zostanie poruszone na początku.\\
 
- Polski Kodeks Cywilny definiuje nieruchomości jako
-\textit { części powierzchni ziemskiej stanowiące odrębny przedmiot własności (grunty), jak również budynki trwale z gruntem związane lub części takich budynków(...)} \cite{KC}
-Definicja jest ogólna, ale wskazuje już na zagadnienie własności, które może się okaząć później istotne jako potencjalny parametr dla modelu. Ponadto różnicuje grunty oraz budynki. Budynki same w sobie nie są przedmiotem tej pracy, jeśli zaś chodzi o rodzaje działek gruntowych, dzieli się jem.in  na działki rolne i siedliskowe (tutaj zabudowania to różnego rodzaju budynki związane z produkcją rolną, rownież zabudowania mieszkalne, jeśli nie są rodzielne od budynków gospodarczych), budowlane przeznaczone na zabudowę mieszkaniową,  inwestycyjne (przemysłowe), rekreacyjne (tutaj jako grunty zabudowane wystapić moga np domki na terenie ogrodów działkowych, które nie muszą być uzbrojone), leśne. \cite{RMRPiTegb}\\
+Kodeks cywilny definiuje nieruchomości jako \textit{ części powierzchni ziemskiej stanowiące odrębny przedmiot własności (grunty), jak również budynki trwale z gruntem związane lub części takich budynków(...)}\footnote{Kodeks Cywilny, Część Ogólna- Mienie Art. 46.§ 1. https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU19640160093/U/D19640093Lj.pdf dost 27.09.2022}
+Definicja różnicuje grunty oraz budynki. Budynki same w sobie nie są przedmiotem tej pracy, jeśli zaś chodzi o rodzaje działek gruntowych, dzieli się je m.in.  na działki rolne i siedliskowe (tutaj zabudowania to różnego rodzaju budynki związane z produkcją rolną, rownież zabudowania mieszkalne, jeśli nie są rodzielne od budynków gospodarczych), budowlane przeznaczone na zabudowę mieszkaniową,  inwestycyjne (przemysłowe), rekreacyjne (tutaj jako grunty zabudowane wystapić moga np. domki na terenie ogrodów działkowych, które nie muszą być uzbrojone), grunty leśne.\footnote{Rozp. Ministra Rozwoju, Pracy i Technologii z dnia 27 lipca 2021 r. w sprawie ewidencji gruntów i budynków, Zał. 1}\\
 
 
-Pojęcie działki budowlanej doprecyzowane jest w kilku aktach prawnych, np w Ustawie o planowaniu i zagospodarowaniu przestrzennym, która definiuje ją jako \textit {nieruchomość gruntową lub działkę gruntu, której wielkość, cechy geometryczne, dostęp do drogi publicznej oraz wyposażenie w urządzenia infrastruktury technicznej spełniają wymogi realizacji obiektów budowlanych(...)}
-\cite{Uopizp}
-Z tej definicji wynika, że na działce budowlanej można zgodnie z prawem wznieść nieruchomość. Wskazuje równiez na powierzchnię, kształ, dojazd, infrastrukturę jako istotne cechy działki, któ©e będą potencjalnymi parametrami modelu w dalszej części pracy.\\
+Pojęcie działki budowlanej doprecyzowane jest w kilku aktach prawnych, np. w Ustawie o planowaniu i zagospodarowaniu przestrzennym, która definiuje ją jako \textit {nieruchomość gruntową lub działkę gruntu, której wielkość, cechy geometryczne, dostęp do drogi publicznej oraz wyposażenie w urządzenia infrastruktury technicznej spełniają wymogi realizacji obiektów budowlanych(...)}
+\footnote{Dz. U. 2003 Nr 80 poz. 717, Ustawa z dnia 27 marca 2003 r. o planowaniu i zagospodarowaniu przestrzennym, Art. 2 pkt 12  https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20030800717/U/D20030717Lj.pdf dost 27.09.2022}
+Z tej definicji wynika, że na działce budowlanej można zgodnie z prawem wznieść nieruchomość. Wskazuje ona również na powierzchnię, kształ, dojazd, infrastrukturę jako istotne cechy działki.\\
 
-Tymaczesm Ustawa o gospodarce nieruchomościami  definiuje działkę budowlaną podobnie, ale jako \textit {zabudowaną działkę grutu}\cite{Uogn}. Definicja nie jest więc spójna. 
-Na potrzeby tej pracy działkę budowlaną będziemy postrzegać w pierwszym ujęciu -jako teren, na którym prawo dopuszcza postawienie nieruchomości. Zdecydowanie zabudowanie działki nie będzie jednak warunkiem koniecznym.
-Potencjalny problem, jaki powstaje w tym miejscu, to czy zabudowane działki
-będą klasykikowane jako domy, magazyny itd, czy jako działki budowlane.\\
+Tymaczesem Ustawa o gospodarce nieruchomościami  definiuje działkę budowlaną podobnie, ale jako \textit {zabudowaną działkę grutu}\footnote{Dz.U. 1997 nr 115 poz. 741, Art. 4 pkt 3a,  Ustawa z dnia 21 sierpnia 1997 r. o gospodarce nieruchomościami, https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU19971150741/U/D19970741Lj.pdf, dost 27.09.2022}, definicja nie jest więc spójna. 
+Na potrzeby tej pracy działka budowlana będzie postrzegana w pierwszym ujęciu -jako teren, na którym prawo dopuszcza postawienie nieruchomości, ale zabudowanie działki nie będzie jednak warunkiem koniecznym.\\
 
 
 Założeniem tej pracy jest skupienie się na działkach, czyli określenie wartości samego gruntu. W dalszej części pracy wskazane będzie, w jakim stopniu możliwe jest rozdzielenie ofert sprzedaży działek zabudowanych i niezabudowanych.\\
 
 
-Co się tyczy dalszych warunków, jakie spełniać powinna działka budowlana, przeczytamy również: \\
+Co się tyczy dalszych warunków, jakie spełniać powinna działka budowlana, przeczytać można również, że \textit{przewidziana pod zabudowę budynkami przeznaczonymi na pobyt ludzi powinna mieć zapewnioną możliwość przyłączenia uzbrojenia działki lub bezpośrednio budynku do sieci wodociągowej, kanalizacyjnej, elektroenergetycznej i ciepłowniczej, (...) telekomunikacyjnej. 2. Za równorzędne z przyłączeniem do sieci elektroenergetycznej i ciepłowniczej uznaje się zapewnienie możliwości korzystania  z indywidualnych  źródeł  energii  elektrycznej  i ciepła(...)}\footnote{Dz.U. 2002 nr 75 poz. 690, Rozdz. 5, § 26. 1.Rozporządzenie Ministra Infrastruktury z dnia 12 kwietnia 2002 r. w sprawie warunków technicznych, jakim powinny odpowiadać budynki i ich usytuowanie, https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20020750690/O/D20020690.pdf, dost 27.09.2022}. Ten fragment wskazuje na kolejene potencjalne parametry działki budowlanej: dostępność mediów i możliwość przyłączenia do sieci.
 
 
- \textit {Działka budowlana przewidziana pod zabudowę budynkami przeznaczonymi na pobyt ludzi powinna mieć zapewnioną możliwość przyłączenia uzbrojenia działki lub bezpośrednio budynku do sieci wodociągowej, kanalizacyjnej, elektroenergetycznej i ciepłowniczej, (...) telekomunikacyjnej. 2. Za równorzędne z przyłączeniem do sieci elektroenergetycznej i ciepłowniczej uznaje się zapewnienie możliwości korzystania  z indywidualnych  źródeł  energii  elektrycznej  i ciepła(...)}\cite{RMI}
-
-Ten fragment wskazuje na potencjalne parametry danych wejściowych w dalszej części pracy: dostępność mediów i możliwość przyłączenia do sieci.
-
-
-Warto również zaznaczyć, że nawet jeśli w ogłoszeniu o sprzedaży dana działka będziw oznaczona jako budowlana, należy zweryfikować w  Miejscowym Planie Zagospodoarowania Przestrzennego, czy w istocie nadaje się pod zabudowę. Te plany dostepne są w internecie, w formacie interaktywnej mapy, mapy pdf, oraz - przede wszystkim - jako tekst uchwały samorządu. 
-Ponieważ na portalach ogłoszeniowych można podać przybliżoną lokalizację działki, ani administrator portalu, ani użytkownik nie jest w stanie zweryfikować, czy podane przez ogłoszeniodawcę przeznaczenie działki jest zgodne z prawdą, z tego względu już na wstępnie trzeba liczyć się z potencjalnie źle oznaczonymi danymi.
-
+Warto również zaznaczyć, że należy zweryfikować w  Miejscowym Planie Zagospodarowania Przestrzennego, czy dany grunt w istocie nadaje się pod zabudowę.\footnote{https://www.biznes.gov.pl/pl/opisy-procedur/-/proc/357, dost 17.10.2022}Te plany dostepne są w internecie, w formacie interaktywnej mapy, mapy pdf, oraz - przede wszystkim - jako tekst uchwały samorządu. 
 
 
 \section{Definicja wyceny nieruchomości}
-W tej sekcji sprawdzone zostanie, jak można rozumieć pojęcie wyceny, i co można zaczerpnąć z formalnego opisu tego pojęcia. Na wstępie zaznaczyć należy, że teksty źródłowe (akty prawne) traktują  o wycenianiu nieruchomości w ogóle, nie odnoszą się do przypadku działki bądź działki budowlanej w szczególności.
+ Na wstępie zaznaczyć należy, że teksty źródłowe (akty prawne) traktują  o wycenianiu nieruchomości w ogóle, nie odnoszą się do przypadku działki bądź działki budowlanej w szczególności.
 
 
-W Dzienniku Ustaw czytamy, że \textit{określanie wartości nieruchomości następuje przy zastosowaniu poszczególnych podejść, metod, technik wyceny} \cite{OPRM}. W takim ujęciu wycena służy określaniu wartości nieruchomości, a \textit{wycena} i \textit{określenie wartości} nie są wyrażaniami synonimicznymi, ale na tyle bliskoznaczymi, że na potrzeby tej pracy w dalszej części będą traktowane równoważnie.\\
-Cytowane rozporządzenie precyzuje dalej szereg środków, które umożliwiają realizację zadania, jakim jest wycena czyli \textit {określenie wartości prawa własności lub innych praw do nieruchomości}.
+W Dzienniku Ustaw czytamy, że \textit{określanie wartości nieruchomości następuje przy zastosowaniu poszczególnych podejść, metod, technik wyceny} oraz że wycena jest to \textit {określenie wartości prawa własności lub innych praw do nieruchomości}.\footnote{z.U. 2021 poz. 555, Obwieszczenie Prezesa Rady Ministrów z dnia 3 marca 2021 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Rady Ministrów w sprawie wyceny nieruchomości i sporządzania operatu szacunkowego, Rozdz.2 § 3.1, https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210000555/O/D20210555.pdf dost 27.09.2022}. W takim ujęciu wycena służy określaniu wartości nieruchomości, a \textit{wycena} i \textit{określenie wartości} nie są wyrażaniami synonimicznymi, ale na tyle bliskoznaczymi, że na potrzeby tej pracy w dalszej części będą traktowane równoważnie.\\
 
-Wyceny nieruchomości dokonuje (szczególnie jako biegły) rzeczoznawca majątkowy - opnia wydana na piśmie to operat szacunkowy\cite{Operat}; oprócz tego trudnić się może zajmować się m.in. doradztwem w zakresie rynku nieruchomości\cite{Operat2}. By osiągnąć ten cel, może zastosować podejście porównawcze, dochodowe, mieszane oraz kosztowe. Każde podejście jest realizowane za pomocą odrębnych metod, z którymi z kolei wiążą się różne techniki.
+
+Wyceny nieruchomości dokonuje (szczególnie jako biegły) rzeczoznawca majątkowy - opnia wydana na piśmie to operat szacunkowy\footnote{Obwieszczenie Marszałka Sejmu Rzeczypospolitej Polskiej z dnia 17 września 2021 r. w sprawie ogłoszenia jednolitego tekstu ustawy o gospodarce nieruchomościami ,Art. 156. 1, https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210001899/T/D20211899L.pdf dost 12.10.2022}; oprócz tego trudnić się może zajmować się m.in. doradztwem w zakresie rynku nieruchomości\footnote{tamże, Art. 174}. By osiągnąć ten cel, może zastosować podejście porównawcze, dochodowe, mieszane oraz kosztowe. Każde podejście jest realizowane za pomocą odrębnych metod, z którymi z kolei wiążą się różne techniki.
 Wyróżnione zostają następujące podejścia:
 \begin{itemize}
 
-\item dochodowe - w tym podejściu zasadniczą rolę odgrywa znajomość dochodów uzyskiwanych lub możliwych do uzyskania z nieruchomości, do wyceny można zaś zastosować analizę stawek rynkowych czynszów i dzierżawy, albo analizę dochodów uzyskiwanych z działalności w podobnych nieruchomościach.
+\item dochodowe - w tym podejściu zasadniczą rolę odgrywa znajomość dochodów uzyskiwanych lub możliwych do uzyskania z nieruchomości, do wyceny można zaś zastosować analizę stawek rynkowych czynszów i dzierżawy, albo analizę dochodów uzyskiwanych z działalności w podobnych nieruchomościach
 
-To podejście nie będzie miało zastosowania w dalszej częsci pracy ponieważ informacje dotyczące dochodów z nieruchomości nie są ogólnodostępne.
-
-
-\item mieszane - stosuje się analizę kosztów robót budowlanych - remontu, rozbudowy, itp, analizę kosztów likwidacji  -które znowu nie są ogólnodostepne albo metodę wskaźników szacunkowych gruntów, która z kolei dotyczy gruntów leśnych i rolnych, więc nie będących przedmiotem tej pracy
+\item mieszane - stosuje się analizę kosztów robót budowlanych (remontu, rozbudowy, itp.) analizę kosztów likwidacj, albo metodę wskaźników szacunkowych gruntów, która z kolei dotyczy gruntów leśnych i rolnych, więc nie będących przedmiotem tej pracy
 
 
-\item kosztowe - trzecie podejście do wyceny nieruchomości jest realizowane poprzez określanie\ textit{ kosztów odtworzenia} lub \textit {zastąpienia}  części skłądowych gruntu częściami o takiej samej funkcji; przy tym podejściu może wystaąpić sytuacja, gdy wartość nieruchomości - ze względu na wysoki koszt przywrócenia jej do stanu umożliwiającego użytkowanie zgodnie z przeznaczniem- będzie liczbą ujemną.
+\item kosztowe - trzecie podejście do wyceny nieruchomości jest realizowane poprzez określanie\ \textit{ kosztów odtworzenia} lub \textit{zastąpienia} części składowych gruntu częściami o takiej samej funkcji; przy tym podejściu może wystąpić sytuacja, gdy wartość nieruchomości - ze względu na wysoki koszt przywrócenia jej do stanu umożliwiającego użytkowanie zgodnie z przeznaczniem - będzie liczbą ujemną
 
-\item porównawcze - jest czwartym i ostatnim podejściem, z którym wiążą się metody \textit{porównywania parami} - wycenianą nieruchomośc porównuje się kolejno z podobnymi nieruchomościami, które były przedmiotem obrotu rynkowego, \textit{korygowania ceny średniej} - gdzie wylicza się średnią cenę transakcyjną z przynajmniej kilkunastu podobnych nieruchomości, a następnie koryguje o poszczególne cechy nieruchomości, \textit {analizy statystycznej} - ustawa nie przybliża jednak konkretnych metod.
+\item porównawcze - jest czwartym i ostatnim podejściem, z którym wiążą się metody \textit{porównywania parami} - wycenianą nieruchomośc porównuje się kolejno z podobnymi nieruchomościami, które były przedmiotem obrotu rynkowego, \textit{korygowania ceny średniej} - gdzie wylicza się średnią cenę transakcyjną z przynajmniej kilkunastu podobnych nieruchomości, a następnie koryguje o poszczególne cechy nieruchomości oraz \textit {analizy statystycznej}
 
 \end{itemize}
 
 
-Podejście porównawcze opisane powyżej jest najbliższe zastosowanemu do przeprowadzenia wyceny w dalszej części pracy, gdzie danymi wejściowymi dla sieci neuronowej są dane o  cenach i cechach nieruchomości zebrane z dostępnych w internecie ofert. \\
-W metodzie porównawczej uwzględniane są jednak ceny transakcyjne, do których dostęp mają osoby lub instytucje biorące bezpośredni udział w transakcjach kupna-sprzedaży oraz biura nieruchomości. Korzystający z tej metody powinnini znać również warunki zawarcia tych transakcji  oraz to, jak cechy danej nieruchomości wpłynęły na cenę transakcyjną, np szczególną ostrożność trzeba zaś przyłożyć do cen związanych z przetargami.\\
-Ceny powszechnie dostępne to cenyofertowe  podawane w ogłoszeniach o sprzedaży nieruchomości, które są cenami rynkowymi, nie koniecznie są jednak cenami transakcyjnymi.
-Powyżej nakreślone zostało pojęcie wyceny w formalnym, prawnym ujęciu, oraz w jaki sposób może być ona realizowana przez rzeczoznawcę.
+W metodzie porównawczej uwzględniane są ceny transakcyjne, do których dostęp mają osoby lub instytucje biorące bezpośredni udział w transakcjach kupna-sprzedaży oraz biura nieruchomości. Korzystający z tej metody powinnini znać również warunki zawarcia tych transakcji  oraz to, jak cechy danej nieruchomości wpłynęły na cenę transakcyjną, np szczególną ostrożność trzeba zaś przyłożyć do cen związanych z przetargami.\\
 
 
 \section {Istniejące rozwiązania}
 Istnieje na rynku przynajniej kilka rozwiązań, wspierających proces wyceny nieruchomości.
-Portale internetowe (na przykład skup.io, ceny.szybko.pl) oferują usługę kalkulatora wartości nieruchomości. Aby dokonać wyceny, należy wprowadzić m.in informacje o adresie, roku budowy, metrażu, liczbie pokoi, numerze piętra, subiektywnie ustalonym standardzie, udogodnieniach. Obie wspomniane strony w domyślnym formularzu przeznaczonym do wyceny domu/mieszkania oferują zaznaczenie opcji, że na sprzedaż jest działka, jednak nie powoduje to zmiany wygladu formularza. \cite{skup} \cite{cenyszybko}
+Portale internetowe (na przykład skup.io, ceny.szybko.pl) oferują usługę kalkulatora wartości nieruchomości. Aby dokonać wyceny, należy wprowadzić m.in informacje o adresie, roku budowy, metrażu, liczbie pokoi, numerze piętra, subiektywnie ustalonym standardzie, udogodnieniach. Obie wspomniane strony w domyślnym formularzu przeznaczonym do wyceny domu/mieszkania oferują zaznaczenie opcji, że na sprzedaż jest działka, jednak nie powoduje to zmiany wygladu formularza.\footnote{https://skup.io/darmowa-wycena-nieruchomosci/ dost 17.10.2022}\footnote{https://ceny.szybko.pl/wycena-nieruchomosci/sprzedaż/działka dost. 17.10.2022}
 
-Drugi ze wspomnianych portali w opisie swojej oferty wspomina o wykorzystaniu AVM (Automated valuation Model), Automatycznego Modelu Wyceny, który analizuje ceny transakcyjne i ofertowe oraz cechy konkretnej nieruchomości i oblicza rynkową wartość nieruchomości za pomocą modelu statystycznego. \\
-Według Polskiej Federacji Stowarzyszeń Rzeczoznawców Majątkowych AMW to oparty na statystyce program komputerowy wykorzystujacy informacje z bazy cen transakcyjnych i cech nieruchomości do generowania wartości nieruchomości. Wspomaga pracę rzeczoznawcy i może posłużyć jako jedna z danych wejściowych, lecz nie może jednak zupełnie zastąpić oceny biegłego, m.in dlatego, że pomija tradycyjną wycenę opartą np na podejsciu dochodowym lub porównawczym i fizyczną, jakościową ocenę wykonywaną przez rzeczoznawcę. \cite{plfed}
+Drugi ze wspomnianych portali w opisie swojej oferty wspomina o wykorzystaniu AVM (Automated valuation Model), Automatycznego Modelu Wyceny, który analizuje ceny transakcyjne i ofertowe oraz cechy konkretnej nieruchomości i oblicza rynkową wartość nieruchomości za pomocą modelu statystycznego.\\
+Według Polskiej Federacji Stowarzyszeń Rzeczoznawców Majątkowych AMW to oparty na statystyce program komputerowy wykorzystujacy informacje z bazy cen transakcyjnych i cech nieruchomości do generowania wartości nieruchomości. Wspomaga pracę rzeczoznawcy i może posłużyć jako jedna z danych wejściowych, lecz nie może jednak zupełnie zastąpić oceny biegłego, m.in dlatego, że pomija tradycyjną wycenę opartą np na podejsciu dochodowym lub porównawczym i fizyczną, jakościową ocenę wykonywaną przez rzeczoznawcę. \footnote{Polska Federacji Stowarzyszeń Rzeczoznawców Majątkowych, Nowy Europejski Standard dot. Automatycznych Modeli Wyceny, https://pfsrm.pl/aktualnosci/item/480-nowy-europejski-standard-dot-automatycznych-modeli-wyceny, dost 17.10.2022}
 
-Wykorzystanie sieci neuronowej jest jedną z dostępnych metod obliczeniowych podczas implementacji AMW \cite{AVMFigurska}, obok analizy regresji, analizy szeregów czasowych, modeli ważonych geograficznie, modeli symulacyjnych, algorytmów genetycznych itp. \cite{AMVbilozor}
+Wykorzystanie sieci neuronowej jest jedną z dostępnych metod obliczeniowych podczas implementacji AMW \footnote{Marta Figurska, Automatyczne modele wyceny nieruchomości - ujęcie teoretyczne, Uniwersytet Warmińsko-Mazurski w Olsztynie,
+https://www.researchgate.net/profile/Marta-Figurska-2/publication/325976006\_Automatyczne\_modele\_wyceny\_nieruchomosci\_-\_ujecie\_teoretyczne\_Automated\_valuation\_models\_on\_the\_real\_estate\_market\_-\_theoretical\_depiction/links/5b3218b74585150d23d4a616/Automatyczne-modele-wyceny-nieruchomosci-ujecie-teoretyczne-Automated-valuation-models-on-the-real-estate-market-theoretical-depiction.pdf dosy 17.10.2022}, obok analizy regresji, analizy szeregów czasowych, modeli ważonych geograficznie, modeli symulacyjnych, algorytmów genetycznych itp.\footnote{dr Małgorzata Renigier-Biłozor, prof Sabina Źróbek,  Marek Walacik,nAneta Chmielewska, Stosowanie AVM - aktualny temat dyskusji
+praktyków i teoretyków związanych z gospodarką nieruchomościami}
+
+AVM wspomniane jest np w dokumentacji sporządzonej przez Europejską Grupe Stowarzyszeń Rzeczoznawców Majątkowych (TEGOVA), która stwierdza, że zaawansowane modele statystyczne są najnowocześniejszą i najbardziej wyfarinowanymi AVM.\footnote{European Valuation Standards , 9th Edition 2020, The European Group of Valuer's Associations, str 289, https://tegova.org/static/72fa037473e198cbd428e465158bcfdb/a6048c931cdc93\_TEGOVA\_EVS\_2020\_digital.pdf dost 14.10.2022} 
 
 
-\cite{szybko}AVM wspomniane jest np w dokumentacji sporządzonej przez Europejską Grupe Stowarzyszeń Rzeczoznawców Majątkowych (TEGOVA), która stwierdza, że zaawansowane modele statystyczne są najnowocześniejszą i najbardziej wyfarinowanymi AVM. \cite{AVM} 
-
-
-Portal ceny.szybko.pl oferuje Heatmapę, która ma odzwierciedlać średni poziom cen w okolicy oraz dostęp do historii zmian cen w wybranej lokalizacji do 3 lat wstecz. \cite{szybko}, a strona otodom.pl Mapę Cen, która, za stroną \textit{jest budowana i aktualizowana na bieżąco od wielu lat, na podstawie danych płynących bezpośrednio z urzędów gmin i miast}\cite{otodom} i przedstawia mapę cen transakcyjnych stworzoną z parterem technologicznym PriceR, który na swojej stronie  oferuje jedynie wyceny mieszkań. \cite{pricer}
-
-\section{Podsumowanie}
-
-Z powyższch rozważań wynika, że problem wyceny dziełek budowlanych związany jest z zagadnieniem wyceny nieruchomości w ogóle. 
-Na poziomie portalu z ogłoszeniami o sprzedaży działek nie można zweryfikować, jakie są faktyczne warunki zabudowy gruntu.
-Ponadtwo, działka pasująca do definicji działki budowlanej może być zabudowana lub nie.
-Formalnie -do celów urzędowych - wyceną działki budowlanej zajmuje się rzeczoznawca majątkowy. Dokonuje wyceny na podstawie znajomości rynku, a szczególnie cen transakcyjnych, które nie są informacjami ogólnodostepnymi. Rzeczoznawca ma do dyspozycji szereg metod i technik, jednak nie są one opisane na tyle szczegółowo, by można było z nich czerpać na potrzeby tej pracy, korzystać może również z narzędzi w rodzaju AMV, oferowanych przez szereg podmiotów, 
+Portal ceny.szybko.pl oferuje Heatmapę, która ma odzwierciedlać średni poziom cen w okolicy oraz dostęp do historii zmian cen w wybranej lokalizacji do 3 lat wstecz.\footnote{https://ceny.szybko.pl/, dost 15.10.2022}, a strona otodom.pl Mapę Cen, która, za stroną \textit{jest budowana i aktualizowana na bieżąco od wielu lat, na podstawie danych płynących bezpośrednio z urzędów gmin i miast}\footnote{https://pomoc.otodom.pl/hc/pl/articles/4403782095762-Mapa-cen-transakcji dost. 17.10.2022} i przedstawia mapę cen transakcyjnych stworzoną z parterem technologicznym PriceR, który na swojej stronie  oferuje jedynie wyceny mieszkań. \footnote{https://pricer.pl/, dost 17.10.2022}
 
 
 
@@ -424,6 +402,8 @@ MINISTRA ROZWOJU, PRACY I TECHNOLOGII1) z dnia 27 lipca 2021 r. w sprawie ewiden
 \bibitem{Uopizp} {Dz. U. 2003 Nr 80 poz. 717, Ustawa z dnia 27 marca 2003 r. o planowaniu i zagospodarowaniu przestrzennym, Art. 2 pkt 12  https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20030800717/U/D20030717Lj.pdf dost 27.09.2022}
 \bibitem {Uogn}{ Dz.U. 1997 nr 115 poz. 741, Art. 4 pkt 3a,  Ustawa z dnia 21 sierpnia 1997 r. o gospodarce nieruchomościami, https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU19971150741/U/D19970741Lj.pdf, dost 27.09.2022}
 \bibitem{RMI}{Dz.U. 2002 nr 75 poz. 690, Rozdz. 5, § 26. 1.Rozporządzenie Ministra Infrastruktury z dnia 12 kwietnia 2002 r. w sprawie warunków technicznych, jakim powinny odpowiadać budynki i ich usytuowanie, https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20020750690/O/D20020690.pdf, dost 27.09.2022 }
+\bibitem{biznesgov}{https://www.biznes.gov.pl/pl/opisy-procedur/-/proc/357, dost 17.10.2022}
+\bibitem{OPRM}{Dz.U. 2021 poz. 555, Obwieszczenie Prezesa Rady Ministrów z dnia 3 marca 2021 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Rady Ministrów w sprawie wyceny nieruchomości i sporządzania operatu szacunkowego, Rozdz.2 § 3.1, https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210000555/O/D20210555.pdf dost 27.09.2022}
 \bibitem{Operat}{Obwieszczenie Marszałka Sejmu Rzeczypospolitej Polskiej z dnia 17 września 2021 r. w sprawie ogłoszenia jednolitego tekstu ustawy o gospodarce nieruchomościami ,Art. 156. 1, https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210001899/T/D20211899L.pdf dost 12.10.2022}
 \bibitem{Operat2}{tamże, Art. 174 }
 
@@ -431,16 +411,17 @@ MINISTRA ROZWOJU, PRACY I TECHNOLOGII1) z dnia 27 lipca 2021 r. w sprawie ewiden
 \bibitem{AVMFigurska}{Marta Figurska, Automatyczne modele wyceny nieruchomości - ujęcie teoretyczne, Uniwersytet Warmińsko-Mazurski w Olsztynie,
 https://www.researchgate.net/profile/Marta-Figurska-2/publication/325976006\_Automatyczne\_modele\_wyceny\_nieruchomosci\_-\_ujecie\_teoretyczne\_Automated\_valuation\_models\_on\_the\_real\_estate\_market\_-\_theoretical\_depiction/links/5b3218b74585150d23d4a616/Automatyczne-modele-wyceny-nieruchomosci-ujecie-teoretyczne-Automated-valuation-models-on-the-real-estate-market-theoretical-depiction.pdf dosy 17.10.2022
 }
+
 \bibitem{pricer}{https://pricer.pl/, dost 17.10.2022}
 \bibitem{otodom}{https://pomoc.otodom.pl/hc/pl/articles/4403782095762-Mapa-cen-transakcji dost. 17.10.2022}
 \bibitem{szybko}{https://ceny.szybko.pl/, dost 15.10.2022}
 \bibitem{skup}{https://skup.io/darmowa-wycena-nieruchomosci/ dost 17.10.2022}
-\bibitem{ceyszybko}{https://ceny.szybko.pl/wycena-nieruchomosci/sprzedaż/działka dost. 17.10.2022}
-\bibitem{AVM} {European Valuation Standards , 9th Edition 2020, The European Group of Valuer's Associations, str 289, https://tegova.org/static/72fa037473e198cbd428e465158bcfdb/a6048c931cdc93\_TEGOVA\_EVS\_2020\_digital.pdf dost 14.10.2022}
+\bibitem{cenyszybko}{https://ceny.szybko.pl/wycena-nieruchomosci/sprzedaż/działka dost. 17.10.2022}
+
 \bibitem{AMVbilozor}{dr Małgorzata Renigier-Biłozor, prof Sabina Źróbek,  Marek Walacik,nAneta Chmielewska, Stosowanie AVM - aktualny temat dyskusji
 praktyków i teoretyków związanych z gospodarką nieruchomościami}
+\bibitem{AVM} {European Valuation Standards , 9th Edition 2020, The European Group of Valuer's Associations, str 289, https://tegova.org/static/72fa037473e198cbd428e465158bcfdb/a6048c931cdc93\_TEGOVA\_EVS\_2020\_digital.pdf dost 14.10.2022}
 
-\bibitem{OPRM}{Dz.U. 2021 poz. 555, Obwieszczenie Prezesa Rady Ministrów z dnia 3 marca 2021 r. w sprawie ogłoszenia jednolitego tekstu rozporządzenia Rady Ministrów w sprawie wyceny nieruchomości i sporządzania operatu szacunkowego, Rozdz.2 § 3.1, https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210000555/O/D20210555.pdf dost 27.09.2022}
 
 \bibitem{UoGN}{Ustawa z dnia 21sierpnia 1997r.o gospodarce nieruchomościami; http://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20200001990/U/D20201990Lj.pdf}
 \bibitem{UoP}{U S T A W Az dnia 27marca 2003r.o planowaniu izagospodarowaniu przestrzennym; http://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20210000741/U/D20210741Lj.pdf}
